@@ -1,0 +1,51 @@
+https://presentations.generalassemb.ly/a93037b87af7a975029e#/
+https://gist.github.com/talitore/a93037b87af7a975029e
+
+I want to talk about Mutation Testing. What it is, why it used, and also what some of the downsides might be.
+but first, I want to talk about what code coverage is.
+
+-
+
+Code coverage, as most know, is - in it's simplest form - how much of your code base is tested with a given suite. Fun fact - code coverage has been in use as far back as 1963.
+
+-
+
+The most common tool for code coverage utilized @ GA is probably simplecov, which gives a nice quick graphical representation of your coverage after tests are ran. Which is then usually will sent to CodeClimate
+
+-
+
+for analysis. Now why do I bring up code coverage when this is about mutation testing?
+
+-
+
+because you can have 100% code coverage and still not have all edge cases figured out. It can easily send you into a false sense of security. Now, don't get me wrong. 100% coverage is fantastic, striving for it will definitely lead to fewer bugs. k so back to the beginnning.
+
+-
+
+What is mutation testing?
+Unlike normal tdd, which runs tests against your codebase and expects it to pass, mutation testing modifies your code base and EXPECTS your tests to fail.
+
+-
+
+Basically, you have a test suite to test your codebase, mutation testing is way to test your test suite.
+
+= it does this by replacing predefined bits of logic it finds with other similar bits (web page examples)
+
+-
+
+Why would we use it?
+- You use it to find edge cases and create tests for situations that might not be so obvious.
+- Can actually use to build out your test suite. If you wanted to be lazy maybe, and create a suite that only touched every class once; mutation testing should 'theorectically' tell you all tests you're missing.
+
+-
+
+Now I'm gonna demo some examples
+
+-
+
+Downsides
+- As you saw mutation testing can take a long time as it's creating these multiple mutants from each line, and running your whole test suite against that one change.
+- We are a rails shop, and configuring it for rails is to put frankly a giant pain in the ass.
+- Something like this is not at all applicable for black box testing, for example something like rspecs feature tests.
+
+-
